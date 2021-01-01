@@ -4,9 +4,10 @@ import List from './components/list/List'
 import Loading from './components/utils/Loading'
 import { getAllPets } from './sites/sites'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css';
+// import './App.css';
 import mongoose from 'mongoose'
 import axios from 'axios';
+
 
 import styled from 'styled-components'
 
@@ -59,10 +60,9 @@ function App() {
   return (
     <Application>
       { loading ?
-      <Loading message="Loading adorable adoptable puppies"/> 
+      <Loading message="Loading adorable adoptable canines"/> 
           : 
-          <List pets={adoptablePets}/>
-          
+          <List pets={adoptablePets}/>   
       }
 
     </Application>
