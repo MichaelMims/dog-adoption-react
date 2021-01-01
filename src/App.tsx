@@ -27,7 +27,6 @@ const Footer = styled.div`
 `
 
 function App() {
-  console.log('start')
   let emptyArray: Pet[] = []
   const [loading, setLoading] = useState(false)
   const [adoptablePets, setAdoptablePets] = useState(emptyArray)
