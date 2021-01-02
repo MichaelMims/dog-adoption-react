@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Pet, ListProp, PetProp } from './utils/utils'
+import { Pet } from './utils/utils'
 import List from './components/list/List'
 import Loading from './components/utils/Loading'
 import { getAllPets } from './sites/sites'
-import 'bootstrap/dist/css/bootstrap.min.css'
-// import './App.css';
-import mongoose from 'mongoose'
-import axios from 'axios';
 
 
 import styled from 'styled-components'
@@ -24,7 +20,9 @@ const Title = styled.a`
 `
 
 const Footer = styled.div`
-
+height: 
+`
+const FooterText = styled.p`
 `
 
 function App() {
@@ -41,21 +39,6 @@ function App() {
       })
       .catch()
   }, [])
-
-  // useEffect(() => {
-
-  //   setLoading(true)
-  //   axios
-  //     .get('/pets')
-  //     .then((res: any) => {
-  //       setAdoptablePets(res.data.pets)
-  //       setLoading(false)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-
-  // }, [])
 
   return (
     <Application>
