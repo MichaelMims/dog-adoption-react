@@ -3,7 +3,7 @@ import { Pet } from './utils/utils'
 import List from './components/list/List'
 import Loading from './components/utils/Loading'
 import { getAllPets } from './sites/sites'
-
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 import styled from 'styled-components'
 
@@ -20,7 +20,6 @@ const Title = styled.a`
 `
 
 const Footer = styled.div`
-height: 
 `
 const FooterText = styled.p`
 `
