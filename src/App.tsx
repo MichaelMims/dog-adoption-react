@@ -33,7 +33,19 @@ function App() {
     setLoading(true)
     getAllPets()
       .then((res: Pet[]) => {
-        setAdoptablePets(res)
+        const sorted = res.sort((a: Pet, b: Pet) => {
+          const aName = a.name.toLowerCase();
+          const bName = b.name.toLowerCase();
+
+          console.log(aName, bName, aName < bName)
+          if (aName < bName)
+            return -1
+          if (bName < aName)
+            return 1
+          else
+            return 0;
+        })
+        setAdoptablePets(sorted)
         setLoading(false)
       })
       .catch()

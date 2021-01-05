@@ -4,6 +4,7 @@ import Loading from '../utils/Loading'
 import styled from 'styled-components'
 
 const Text = styled.span`
+font-size: 1.4rem;
 @media (max-width: 768px) {
     // font-size: 2em;
 }
@@ -11,32 +12,40 @@ const Text = styled.span`
 
 const ImageContainer = styled.div`
 display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
+// flex: 0 0 100px;
+// justify-content: center;
+// align-items: center;
+// overflow: hidden;
 `
 const ItemImage = styled.img`
 width: 100%;
-height: 20rem;
+height: 20rem; 
 object-fit: fill; 
 `
-const ItemTitle = styled.h1`
-color: black;
-margin: 0px;
+const ItemTitle = styled.div`
+font-size: 2em;
+// margin: 0px;
 font-weight: bold;
 `
 
-const InfoTextHeading = styled.h3`
-font-weight: bold;
-margin: 0px;
+const ItemSubTitle = styled.div`
+
 `
 
-const ItemDetailLink = styled.button`
+
+const InfoTextHeading = styled.span`
+font-weight: bold;
+display: block;
+margin-bottom: 0px;
+`
+
+const ItemDetailLink = styled.a`
 text-decoration: none;
 
 :hover {
+    color: red;
     text-decoration: none;
-    border: 1px dotted red;
+    // border: 1px dotted red;
 }
 `
 
@@ -47,13 +56,27 @@ margin: 10px 0px;
 `
 
 const Info = styled.div`
+padding: 10px;
+`
+
+const Divider = styled.div`
+display: block;
+height: 1px;
+border: 0;
+border-top: 1px solid #ccc;
+margin: .2em 1em;
+padding: 0;
 `
 
 const Card = styled.div`
+display: grid;
+// grid-gap: .5rem;
+align-items: center;
 font-family: 'Amatic SC', cursive;
-width: 20rem;
+width: 22rem;
 padding: 1rem;
-margin: 15px;
+margin: 2rem;
+// margin: 15px;
 box-shadow: 10px 10px 50px 10px gray;
 `
 
@@ -64,21 +87,31 @@ function ListItem({ pet }: PetProp) {
                 <ItemImage src={pet.image} />
             </ImageContainer>
             <ItemTitle>{pet.name}</ItemTitle>
+            <ItemSubTitle>{pet.sex}</ItemSubTitle>
+            {/* <Text>{pet.sex}</Text> */}
             <CardInfoBar>
                 <Info>
                     <InfoTextHeading>Breed</InfoTextHeading>
+                    <Divider></Divider>
                     <Text>{pet.breed}</Text>
                 </Info>
-                <Info>
+                {/* <Info>
                     <InfoTextHeading>Sex</InfoTextHeading>
+                    <Divider></Divider>
                     <Text>{pet.sex}</Text>
-                </Info>
+                </Info> */}
                 <Info>
                     <InfoTextHeading>Weight</InfoTextHeading>
+                    <Divider></Divider>
                     <Text>{pet.weight}</Text>
                 </Info>
+                <Info>
+                    <InfoTextHeading>Age</InfoTextHeading>
+                    <Divider/>
+                    <Text>{pet.age}</Text>
+                </Info>
             </CardInfoBar>
-            <ItemDetailLink as="a" href={pet.url}>More Details</ItemDetailLink> 
+            <ItemDetailLink href={pet.url}>More Details</ItemDetailLink> 
         </Card>
     )
 }
