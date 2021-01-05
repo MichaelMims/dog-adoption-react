@@ -3,63 +3,116 @@ import { PetProp, ListProp } from '../../utils/utils'
 import Loading from '../utils/Loading'
 import styled from 'styled-components'
 
-const Item = styled.div`
-border: none !important;
-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-width: 15rem;
-margin: 10px 15px;
-padding: 10px;
+const Text = styled.span`
+font-size: 1.4rem;
+@media (max-width: 768px) {
+    // font-size: 2em;
+}
 `
 
+const ImageContainer = styled.div`
+display: flex;
+// flex: 0 0 100px;
+// justify-content: center;
+// align-items: center;
+// overflow: hidden;
+`
 const ItemImage = styled.img`
-width: 10rem;
-height: 10rem;
-border-radius: 15px;
-border: 3px groove #555;
+width: 100%;
+height: 20rem; 
+object-fit: fill; 
 `
-
-const ItemBody = styled.div`
-background: transparent !important;
-padding: 0 0;
-margin: 10px 10px;
-text-align: left;
-`
-const ItemTitle = styled.h5`
-color: #009;
-`
-const ItemText = styled.p`
-margin: 5px 0px;
-`
-
-const ItemTextHeading = styled.span`
+const ItemTitle = styled.div`
+font-size: 2em;
+// margin: 0px;
 font-weight: bold;
 `
 
-const ItemDetailLink = styled.button`
+const ItemSubTitle = styled.div`
+
+`
+
+
+const InfoTextHeading = styled.span`
+font-weight: bold;
+display: block;
+margin-bottom: 0px;
+`
+
+const ItemDetailLink = styled.a`
 text-decoration: none;
 
 :hover {
+    color: red;
     text-decoration: none;
-    border: 1px dotted red;
+    // border: 1px dotted red;
 }
+`
+
+const CardInfoBar = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+margin: 10px 0px;
+`
+
+const Info = styled.div`
+padding: 10px;
+`
+
+const Divider = styled.div`
+display: block;
+height: 1px;
+border: 0;
+border-top: 1px solid #ccc;
+margin: .2em 1em;
+padding: 0;
+`
+
+const Card = styled.div`
+display: grid;
+// grid-gap: .5rem;
+align-items: center;
+font-family: 'Amatic SC', cursive;
+width: 22rem;
+padding: 1rem;
+margin: 2rem;
+// margin: 15px;
+box-shadow: 10px 10px 50px 10px gray;
 `
 
 function ListItem({ pet }: PetProp) {
     return (
-        <Item>
-            <ItemImage src={pet.image}>
-
-            </ItemImage>
-            <ItemBody>
-                <ItemTitle>{pet.name}</ItemTitle>
-                {pet.breed !== "N/A" ? <ItemText><ItemTextHeading>Breed: </ItemTextHeading>{pet.breed}</ItemText> : ""}
-                <ItemText><ItemTextHeading>Agency: </ItemTextHeading>{pet.agency}</ItemText>
-                {pet.sex !== "N/A" ? <ItemText><ItemTextHeading>Sex: </ItemTextHeading>{pet.sex}</ItemText> : ""}
-                {pet.age !== "N/A" ? <ItemText><ItemTextHeading>Age: </ItemTextHeading>{pet.age}</ItemText> : ""}
-                {pet.weight !== "N/A" ? <ItemText><ItemTextHeading>Weight: </ItemTextHeading>{pet.weight}</ItemText> : ""}
-                {pet.url !== "N/A" ? <ItemDetailLink as="a" href={pet.url}>More Details</ItemDetailLink> : ""}
-            </ItemBody>
-        </Item>
+        <Card>
+            <ImageContainer>
+                <ItemImage src={pet.image} />
+            </ImageContainer>
+            <ItemTitle>{pet.name}</ItemTitle>
+            <ItemSubTitle>{pet.sex}</ItemSubTitle>
+            {/* <Text>{pet.sex}</Text> */}
+            <CardInfoBar>
+                <Info>
+                    <InfoTextHeading>Breed</InfoTextHeading>
+                    <Divider></Divider>
+                    <Text>{pet.breed}</Text>
+                </Info>
+                {/* <Info>
+                    <InfoTextHeading>Sex</InfoTextHeading>
+                    <Divider></Divider>
+                    <Text>{pet.sex}</Text>
+                </Info> */}
+                <Info>
+                    <InfoTextHeading>Weight</InfoTextHeading>
+                    <Divider></Divider>
+                    <Text>{pet.weight}</Text>
+                </Info>
+                <Info>
+                    <InfoTextHeading>Age</InfoTextHeading>
+                    <Divider/>
+                    <Text>{pet.age}</Text>
+                </Info>
+            </CardInfoBar>
+            <ItemDetailLink href={pet.url}>More Details</ItemDetailLink> 
+        </Card>
     )
 }
 
@@ -69,8 +122,8 @@ margin: 0% 15%;
 margin-bottom: 50px;
 `
 
-const Message = styled.h4`
-font-family: 'Staatliches', cursive;
+const Message = styled.h1`
+font-family: 'Josefin Slab', serif;
 `
 
 const ListContainer = styled.div`

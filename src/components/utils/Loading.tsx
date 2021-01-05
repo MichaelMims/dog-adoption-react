@@ -10,7 +10,7 @@ const Container = styled.div`
     justify-content: center;
     `
     const Message = styled.p`
-    font-family: 'Staatliches', cursive;
+    font-family: 'Josefin Slab', serif;
     `
 
     const spin = keyframes`
